@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next'
 import { base, button, input, label } from 'components/defaultVariants'
 import Dropdown from 'components/inputs/dropdown/Dropdown'
 import Icon from 'components/icon/Icon'
-import DateRange from '../datarange/DateRange'
+import DateRange from '../daterange/DateRange'
 import { CardProps } from './Card.types'
 
 export default function Card({

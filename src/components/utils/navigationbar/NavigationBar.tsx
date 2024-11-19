@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 import { container, base, text } from 'components/defaultVariants'
 
-import Title from 'components/utils/Title'
+import Title from 'components/utils/title/Title'
 
 export default function NavigationBar({ children }: { children: ReactNode }) {
 

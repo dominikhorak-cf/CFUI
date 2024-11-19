@@ -2,7 +2,7 @@ import React from 'react'
 
 import { useNotification } from 'hooks/useNotification'
 import { base, button, container } from 'components/defaultVariants'
-import Icon from 'components/Icon'
+import Icon from 'components/icon/Icon'
 
 const roles = {
     'success': {'icon': 'check'},

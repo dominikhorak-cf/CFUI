@@ -6,11 +6,18 @@ import { useTranslation } from 'react-i18next'
 
 import { ShortDateRange, ShortDateTime } from 'formats/datetime'
 import { button, container, input, text } from 'components/defaultVariants'
-import Icon from 'components/Icon'
-import { useMenuRef } from './Menu'
+import Icon from 'components/icon/Icon'
+import { useMenuRef } from 'components/inputs/menu/Menu'
+import { DateRangeProps } from './DateRange.types'
+import { Positions } from 'components/popover/Popover.types'
 
 const defaultOnSelect = () => {}
-const defaultPositions = ['bottom', 'top', 'left', 'right']
+const defaultPositions: Positions = ['bottom', 'top', 'left', 'right']
+
+interface InputRef {
+    current?: HTMLInputElement | null;
+}
+type dateRangeType = [string | undefined, string | undefined]
 
 export default function DateRange({
     name,
@@ -22,20 +29,21 @@ export default function DateRange({
     includeTo = false,
     includeTime = false,
     disabled = false,
+    required = false,
     locale = 'en',
-    style,
+    className,
     onSelect = defaultOnSelect,
     positions = defaultPositions,
     align = 'center',
-}) {
+}: DateRangeProps) {
 
     const { t } = useTranslation()
-    const fromRef = useRef()
-    const toRef = useRef()
+    const fromRef = useRef<HTMLInputElement | null>(null)
+    const toRef = useRef<HTMLInputElement | null>(null)
     const parentRef = useMenuRef()
-    const [ isOpen, setOpen ] = useState(false)
-    const [ from, setFrom ] = useState(Array.isArray(defaultValue) ? defaultValue?.[0] : defaultValue ?? null)
-    const [ to, setTo ] = useState(Array.isArray(defaultValue) ? defaultValue?.[1] : defaultValue ?? null)
+    const [ isOpen, setOpen ] = useState<boolean>(false)
+    const [ from, setFrom ] = useState<string | undefined>(Array.isArray(defaultValue) ? defaultValue?.[0] : defaultValue ?? undefined)
+    const [ to, setTo ] = useState<string | undefined>(Array.isArray(defaultValue) ? defaultValue?.[1] : defaultValue ?? undefined)
 
     const includeBoth = useMemo(
         () => (includeFrom && includeTo),
@@ -48,7 +56,7 @@ export default function DateRange({
     )
 
     const select = useCallback(
-        ([currentFrom, currentTo]) => {
+        ([currentFrom, currentTo]: dateRangeType) => {
             const newFrom = currentFrom
             const newTo = currentTo
 
@@ -84,7 +92,7 @@ export default function DateRange({
                                     onChange = {e => select([e.target.value, to])}
                                     className = {input({bg: 'full', class: 'min-h-12 w-32'})}
                                 />
-                                <Icon name = "x" size = "sm" onClick = {() => {if (fromRef?.current?.value) {fromRef.current.value = null}; select([null, to])}} className = {`cursor-pointer ${fromRef?.current?.value ? 'text-text dark:text-text-dark' : 'text-hint dark:text-hint-dark'}`}/>
+                                <Icon name = "x" size = "sm" onClick = {() => {if (fromRef?.current?.value) {fromRef.current.value = ''}; select([undefined, to])}} className = {`cursor-pointer ${fromRef?.current?.value ? 'text-text dark:text-text-dark' : 'text-hint dark:text-hint-dark'}`}/>
                             </div>
                         </div>
                         <div className = {container({orientation: 'horizontal', align: 'center', justify: 'between', gap: 'sm', p: 'sm'})}>
@@ -102,13 +110,13 @@ export default function DateRange({
                                     onChange = {e => select([from, e.target.value])}
                                     className = {input({bg: 'full', class: 'min-h-12 w-32'})}
                                 />
-                                <Icon name = "x" size = "sm" onClick = {() => {if (toRef?.current?.value) {toRef.current.value = null}; select([from, null])}} className = {`cursor-pointer ${toRef?.current?.value ? 'text-text dark:text-text-dark' : 'text-hint dark:text-hint-dark'}`}/>
+                                <Icon name = "x" size = "sm" onClick = {() => {if (toRef?.current?.value) {toRef.current.value = ''}; select([from, undefined])}} className = {`cursor-pointer ${toRef?.current?.value ? 'text-text dark:text-text-dark' : 'text-hint dark:text-hint-dark'}`}/>
                             </div>
                         </div>
                     </div>
                 )
             }
-            return null
+            return <></>
         },
         [disabled, includeBoth, includeTime, from, to, min, max, select, t]
     )
@@ -135,7 +143,7 @@ export default function DateRange({
             if (!fromDate && toDate) {
                 return includeFrom ? `... ${toDate}` : toDate
             }
-            return null
+            return undefined
         },
         [includeFrom, includeTo, from, to, dateFormatter]
     )
@@ -151,8 +159,8 @@ export default function DateRange({
             }
             <Popover
                 isOpen = {isOpen}
-                parentElement = {parentRef?.current}
-                boundaryElement = {window.document.getElementById('root')}
+                parentElement = {parentRef?.current ?? undefined}
+                boundaryElement = {window.document.getElementById('root') ?? undefined}
                 positions = {positions}
                 align = {align}
                 padding = {5}
@@ -161,7 +169,7 @@ export default function DateRange({
             >
                 <button
                     id = {name}
-                    className = {button({align: 'center', border: 'none', width: 'max', height: 'fit', className: 'truncate', ...style})}
+                    className = {button({align: 'center', border: 'none', width: 'max', height: 'fit', className: `truncate ${className}`})}
                     onClick = {() => setOpen(!isOpen)}
                 >
                     {label || placeholder || t('DateRange.pick')}

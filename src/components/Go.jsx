@@ -4,7 +4,7 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 import { button } from 'components/defaultVariants'
 
-import Icon from 'components/Icon'
+import Icon from 'components/icon/Icon'
 
 export function Go({
     to,

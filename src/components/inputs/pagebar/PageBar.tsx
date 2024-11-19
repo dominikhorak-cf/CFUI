@@ -1,5 +1,6 @@
 import { button, container } from 'components/defaultVariants'
 import React from 'react'
+import { PageBarProps } from './PageBar.types'
 
 const defaultClick = () => {}
 export const defaultPageSize = 40
@@ -9,7 +10,7 @@ export default function PageBar({
     pageSize = defaultPageSize,
     currentPage = 0,
     onClick = defaultClick,
-}) {
+}: PageBarProps) {
 
     const pageCount = Math.ceil(itemCount / pageSize)
     const start = Math.max(currentPage - 2, 0)

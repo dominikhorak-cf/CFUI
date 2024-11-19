@@ -1,11 +1,16 @@
-import { container, menuItem } from 'components/defaultVariants';
-import Icon from 'components/Icon';
-import React, { useState, createContext, useContext, useRef } from 'react';
-import { Popover } from 'react-tiny-popover';
+import { container, menuItem } from 'components/defaultVariants'
+import Icon from 'components/icon/Icon'
+import React, { useState, createContext, useContext, useRef, Context } from 'react'
+import { Popover } from 'react-tiny-popover'
+import { MenuProps } from './Menu.types'
 
-const MenuContext = createContext(null)
+interface MenuContextType {
+    current?: HTMLElement | null;
+}
 
-export function useMenuRef() {
+const MenuContext = createContext<MenuContextType | null>(null)
+
+export function useMenuRef(): MenuContextType | null  {
     return useContext(MenuContext)
 }
 
@@ -16,17 +21,17 @@ export default function Menu({
     checked = false,
     orientation = 'vertical',
     className
-}) {
+}: MenuProps) {
     const parentRef = useMenuRef()
-    const menuRef = useRef()
-    const [isOpen, setOpen] = useState(false)
+    const menuRef = useRef<HTMLElement | null>(null)
+    const [isOpen, setOpen] = useState<boolean>(false)
 
-    const bodyRef = window.document.getElementById('root')
+    const bodyRef = window.document.getElementById('root') ?? undefined
 
     return (
         <Popover
             ref = {menuRef}
-            {...(parentRef?.current ? {parentElement: menuRef?.current} : {})}
+            parentElement = {parentRef?.current ? menuRef?.current ?? undefined : undefined}
             isOpen = {isOpen}
             positions = {orientation === 'vertical' ? ['bottom', 'top'] : ['right', 'left']}
             align = "start"
@@ -35,9 +40,9 @@ export default function Menu({
             boundaryInset = {5}
             reposition
             boundaryElement = {bodyRef}
-            containerStyle = {{zIndex: 999}}
+            containerStyle = {{zIndex: '999'}}
             content = {
-                <div className = {container({ orientation: 'vertical', p: 'none', bg: 'full', gap: 'xs', shadow: 'normal', rounded: 'default', className: 'p-1', ...className?.menu})} >
+                <div className = {container({ orientation: 'vertical', p: 'none', bg: 'full', gap: 'xs', shadow: 'normal', rounded: 'default', className: `p-1 ${className?.menu}` })} >
                     <MenuContext.Provider value = {menuRef}>
                         {children}
                     </MenuContext.Provider>

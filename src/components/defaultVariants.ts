@@ -1,5 +1,5 @@
 
-import { tv } from 'tailwind-variants'
+import { tv, type VariantProps } from 'tailwind-variants'
 
 export const base = tv(
     {
@@ -162,6 +162,7 @@ export const text = tv(
     {
         'extend': base,
         'variants': {
+            ...base.variants,
             'textSize': {
                 'xs': 'text-xs',
                 'sm': 'text-sm',
@@ -198,6 +199,7 @@ export const label = tv(
     {
         'extend': text,
         'variants': {
+            ...text.variants,
             'textSize': {},
             'role': {
                 'majorHeading': 'text-5xl',
@@ -221,6 +223,7 @@ export const container = tv(
         'extend': base,
         'base': 'flex-nowrap overflow-hidden text-text dark:text-text-dark',
         'variants': {
+            ...base.variants,
             'shadow': {
                 'normal': 'shadow-lg shadow-shadow/25 dark:shadow-shadow-dark/25',
             },
@@ -244,6 +247,7 @@ export const input = tv(
         'extend': text,
         'base': 'transition-colors outline-none disabled:bg-disabled disabled:dark:bg-disabled-dark disabled:text-text/50 disabled:dark:text-text-dark/50',
         'variants': {
+            ...text.variants,
             'role': {
                 'default': 'text-inherit',
                 'theme': 'text-theme dark:text-theme',
@@ -253,13 +257,13 @@ export const input = tv(
                 'critical': 'text-critical dark:text-critical-dark'
             },
             'disabled': {
-                'true': 'cursor-default',
+                true: 'cursor-default',
             },
         },
         'compoundVariants': [
             {
                 'type': 'default',
-                'disabled': 'true',
+                'disabled': true,
                 'class': 'text-disabled dark:text-disabled-dark'
             },
             {
@@ -292,6 +296,7 @@ export const button = tv(
     {
         'extend': input,
         'variants': {
+            ...input.variants,
             'role': {},
             'type': {
                 'default': '',
@@ -329,7 +334,7 @@ export const button = tv(
                 'class': 'active:brightness-90'
             },
             {
-                'border': 'default',
+                'border': 'outline',
                 'type': 'important',
                 'class': 'border-0 border-none',
             },
@@ -360,7 +365,7 @@ export const button = tv(
             },
             {
                 'type': 'important',
-                'disabled': 'true',
+                'disabled': true,
                 'class': 'bg-disabled dark:bg-disabled-dark text-disabled-dark dark:text-disabled',
             },
         ],
@@ -378,12 +383,15 @@ export const responsiveButton = tv(
     {
         'extend': button,
         'base': 'p-0 md:p-2 w-8 md:w-full rounded-full md:rounded-xl aspect-square md:aspect-auto',
+        'variants': {
+            ...button.variants
+        },
         'defaultVariants': {
             'gap': 'xs',
-            'p': null,
-            'width': null,
-            'height': null,
-            'rounded': null,
+            'p': undefined,
+            'width': undefined,
+            'height': undefined,
+            'rounded': undefined,
         }
     }
 )
@@ -391,16 +399,17 @@ export const responsiveButton = tv(
 export const tag = tv(
     {
         'extend': button,
-        'base': 'hover:brightness-110 active:brightness-75 text-xs py-0.5 px-2',
+        'base': 'hover:brightness-110 active:brightness-75 py-0.5 px-2',
         'variants': {
+            ...button.variants,
             'role': {
                 'tag': 'bg-hint-light dark:bg-hint-dark text-text dark:text-text-dark'
             }
         },
         'defaultVariants': {
             'type': 'important',
-            'textSize': 'none',
-            'p': null,
+            'textSize': 'xs',
+            'p': undefined,
             'border': 'none',
             'role': 'tag',
         }
@@ -412,6 +421,7 @@ export const menuItem = tv(
         'extend': base,
         'base': 'text-text dark:text-text-dark text-sm px-2 py-0.5 text-nowrap',
         'variants': {
+            ...base.variants,
             'selected': {
                 'true': 'bg-theme dark:bg-theme-dark text-text-dark dark:text-text-dark'
             }

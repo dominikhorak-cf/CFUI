@@ -1,12 +1,11 @@
-import React from 'react'
+import React, { ReactNode} from 'react'
 import { Link } from 'react-router-dom'
 
 import { container, base, text } from 'components/defaultVariants'
 
-import Personal from './Personal'
-import Title from './Title'
+import Title from 'components/utils/Title'
 
-function NavigationBar() {
+export default function NavigationBar({ children }: { children: ReactNode }) {
 
     return (
         <div className = {container({orientation: 'horizontal', width: 'full', height: 'fit', position: 'sticky', bg: 'full', align: 'center', justify: 'between', p: 'sm', class: 'z-[998] top-0 rounded-t-0'})}>
@@ -18,10 +17,7 @@ function NavigationBar() {
                     <Link to = "/">HelpDesk</Link>
                 </span>
             </div>
-            <Personal/>
             <Title/>
         </div>
     )
 }
-
-export default NavigationBar

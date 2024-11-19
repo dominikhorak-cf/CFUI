@@ -1,44 +1,38 @@
-import PropTypes from 'prop-types'
-import React, { useCallback, useEffect, useRef } from 'react'
+import React, { useCallback, useEffect, useRef, HTMLProps } from 'react'
 import { useTranslation } from 'react-i18next'
 
-import { base, input, label } from 'components/defaultVariants'
-import Dropdown from 'components/inputs/Dropdown'
-import Icon from 'components/Icon'
-import DateRange from './DateRange'
+import { base, button, input, label } from 'components/defaultVariants'
+import Dropdown from 'components/inputs/dropdown/Dropdown'
+import Icon from 'components/icon/Icon'
+import DateRange from '../datarange/DateRange'
+import { CardProps } from './Card.types'
 
-function Card({
+export default function Card({
     name,
     type,
     role = 'input',
-    className = '',
+    className,
     required = false,
     disabled = false,
     placeholder = '',
-    style = null,
-    defaultValue = null,
-    icon = null,
+    values,
+    defaultValue,
+    icon,
     ...props
-}) {
+}: CardProps) {
     const { t } = useTranslation()
-    const textareaRef = useRef()
+    const textareaRef = useRef<HTMLTextAreaElement | null>(null)
 
-    const resize = useCallback(
-        () => {
-            if (textareaRef?.current) {
-                textareaRef.current.style.height = '0px'
-                textareaRef.current.style.height = `${textareaRef.current.scrollHeight}px`
-            }
-        },
-        []
-    )
+    const resize = useCallback(() => {
+        if (textareaRef.current) {
+            textareaRef.current.style.height = '0px'
+            textareaRef.current.style.height = `${textareaRef.current.scrollHeight}px`
+        }
+    }, [])
 
-    useEffect(
-        () => {
-            if (role === 'textarea') resize()
-        },
-        [resize, role]
-    )
+    useEffect(() => {
+        if (role === 'textarea') resize()
+    }, [resize, role])
 
     const renderInput = () => (
         <input
@@ -57,8 +51,8 @@ function Card({
                 hover: 'group',
                 textSize: 'default',
                 bg: 'full',
-                class: `peer pt-6 md:pt-7 pb-2 ${icon ? 'pl-9' : 'pl-4'} pr-8`,
-                ...style,
+                className: `peer pt-6 md:pt-7 pb-2 ${icon ? 'pl-9' : 'pl-4'} pr-8`,
+                ...className?.card
             })}
         />
     )
@@ -68,7 +62,6 @@ function Card({
             id={name}
             ref={textareaRef}
             name={name}
-            type={type}
             required={required}
             disabled={disabled}
             defaultValue={defaultValue}
@@ -83,7 +76,7 @@ function Card({
                 textSize: 'default',
                 bg: 'full',
                 className: `peer pt-6 md:pt-7 pb-2 ${icon ? 'pl-9' : 'pl-4'} pr-8 resize-y h-12 md:h-16 min-h-12 md:min-h-16`,
-                ...style,
+                ...className?.card
             })}
         />
     )
@@ -91,46 +84,51 @@ function Card({
     const renderDropdown = () => (
         <Dropdown
             name={name}
-            required={required}
             disabled={disabled}
             placeholder=" "
+            values={values}
             defaultValue={defaultValue}
             {...props}
-            style={{
-                position: 'absolute',
-                justify: 'start',
-                size: 'full',
-                border: 'outline',
-                hover: 'group',
-                textSize: 'default',
-                textAlign: 'start',
-                bg: 'full',
-                class: `pt-6 md:pt-7 pb-2 ${icon ? 'pl-9' : 'pl-4'} pr-8`,
-                ...style,
-            }}
+            className={
+                {button:
+                    button({
+                        position: 'absolute',
+                        justify: 'start',
+                        size: 'full',
+                        border: 'outline',
+                        hover: 'group',
+                        textSize: 'default',
+                        textAlign: 'start',
+                        bg: 'full',
+                        className: `pt-6 md:pt-7 pb-2 ${icon ? 'pl-9' : 'pl-4'} pr-8`,
+                        ...className?.card
+                    })
+                }
+            }
         />
     )
 
     const renderDateRange = () => (
         <DateRange
             name={name}
-            required={required}
             disabled={disabled}
             placeholder=" "
-            defaultValue={defaultValue}
+            defaultValue={String(defaultValue)}
             {...props}
-            style = {{
-                position: 'absolute',
-                justify: 'start',
-                size: 'full',
-                border: 'outline',
-                hover: 'group',
-                textSize: 'default',
-                textAlign: 'start',
-                bg: 'full',
-                class: `pt-6 md:pt-7 pb-2 ${icon ? 'pl-9' : 'pl-4'} pr-8`,
-                ...style,
-            }}
+            className={
+                button({
+                    position: 'absolute',
+                    justify: 'start',
+                    size: 'full',
+                    border: 'outline',
+                    hover: 'group',
+                    textSize: 'default',
+                    textAlign: 'start',
+                    bg: 'full',
+                    class: `pt-6 md:pt-7 pb-2 ${icon ? 'pl-9' : 'pl-4'} pr-8`,
+                    ...className?.card,
+                })
+            }
         />
     )
 
@@ -179,7 +177,7 @@ function Card({
                 {`${placeholder}${required ? ` (${t('App.required')})` : ''}`}
             </span>
 
-            {(role === 'dropdown' || role === "daterange") && (
+            {(role === 'dropdown' || role === 'daterange') && (
                 <Icon
                     name="chevron-down"
                     className="group-focus-within:-rotate-180 cursor-pointer absolute text-hint top-1/2 -translate-y-1/2 right-3 transition-all duration-300"
@@ -189,18 +187,3 @@ function Card({
         </label>
     )
 }
-
-Card.propTypes = {
-    name: PropTypes.string,
-    type: PropTypes.oneOf(['text', 'password', 'date', 'time', 'datetime', 'radio', 'checkbox']),
-    role: PropTypes.oneOf(['input', 'textarea', 'dropdown', 'daterange']),
-    className: PropTypes.string,
-    required: PropTypes.bool,
-    disabled: PropTypes.bool,
-    placeholder: PropTypes.string,
-    style: PropTypes.object,
-    defaultValue: PropTypes.any,
-    icon: PropTypes.string,
-}
-
-export default Card

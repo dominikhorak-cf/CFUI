@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { NotificationsContextType, useNotification, NotificationRoles, NotificationRoleMapping } from 'hooks/useNotification'
+import { useNotification, NotificationRoleMapping } from 'hooks/useNotification'
 import { base, button, container } from 'components/defaultVariants'
 import Icon from 'components/icon/Icon'
 

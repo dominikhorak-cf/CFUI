@@ -142,14 +142,14 @@ export default function Dropdown<T>({
                     placeholder = {placeholder}
                     value = {filter}
                     onChange = {(e) => setFilter(e.target.value)}
-                    className = {button({border: 'solid', p: 'sm', width: 'max', height: 'fit', className: 'peer truncate', ...className?.button})}
+                    className = {button({border: 'solid', p: 'sm', width: 'max', height: 'fit', className: `peer truncate ${className}`})}
                 />
             }
 
             return <button
                 type = "button"
                 id = {name}
-                className = {button({align: 'center', border: 'none', width: 'max', height: 'fit', className: 'truncate', ...className?.button})}
+                className = {button({align: 'center', border: 'none', width: 'max', height: 'fit', className: `truncate ${className}`})}
                 disabled = {disabled || transformedValues.length === 0}
                 onClick = {() => {setOpen(!isOpen); setFilter('')}}
             >

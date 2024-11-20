@@ -10,10 +10,7 @@ export interface DropdownProps<T> {
     selectMultiple?: boolean,
     allowDeselecting?: boolean,
     onSelect?: Function,
-    className?: {
-        button?: string
-        
-    },
+    className?: string,
     positions?: ('bottom' | 'top' | 'left' | 'right')[],
     align?: 'start' | 'center' | 'end',
 }

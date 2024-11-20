@@ -51,8 +51,7 @@ export default function Card({
                 hover: 'group',
                 textSize: 'default',
                 bg: 'full',
-                className: `peer pt-6 md:pt-7 pb-2 ${icon ? 'pl-9' : 'pl-4'} pr-8`,
-                ...className?.card
+                className: `peer pt-6 md:pt-7 pb-2 ${icon ? 'pl-9' : 'pl-4'} pr-8 ${className?.card}`,
             })}
         />
     )
@@ -75,8 +74,7 @@ export default function Card({
                 hover: 'group',
                 textSize: 'default',
                 bg: 'full',
-                className: `peer pt-6 md:pt-7 pb-2 ${icon ? 'pl-9' : 'pl-4'} pr-8 resize-y h-12 md:h-16 min-h-12 md:min-h-16`,
-                ...className?.card
+                className: `peer pt-6 md:pt-7 pb-2 ${icon ? 'pl-9' : 'pl-4'} pr-8 resize-y h-12 md:h-16 min-h-12 md:min-h-16 ${className?.card}`,
             })}
         />
     )
@@ -90,20 +88,17 @@ export default function Card({
             defaultValue={defaultValue}
             {...props}
             className={
-                {button:
-                    button({
-                        position: 'absolute',
-                        justify: 'start',
-                        size: 'full',
-                        border: 'outline',
-                        hover: 'group',
-                        textSize: 'default',
-                        textAlign: 'start',
-                        bg: 'full',
-                        className: `pt-6 md:pt-7 pb-2 ${icon ? 'pl-9' : 'pl-4'} pr-8`,
-                        ...className?.card
-                    })
-                }
+                button({
+                    position: 'absolute',
+                    justify: 'start',
+                    size: 'full',
+                    border: 'outline',
+                    hover: 'group',
+                    textSize: 'default',
+                    textAlign: 'start',
+                    bg: 'full',
+                    className: `pt-6 md:pt-7 pb-2 ${icon ? 'pl-9' : 'pl-4'} pr-8 ${className?.card}`,
+                })
             }
         />
     )
@@ -125,8 +120,7 @@ export default function Card({
                     textSize: 'default',
                     textAlign: 'start',
                     bg: 'full',
-                    class: `pt-6 md:pt-7 pb-2 ${icon ? 'pl-9' : 'pl-4'} pr-8`,
-                    ...className?.card,
+                    class: `pt-6 md:pt-7 pb-2 ${icon ? 'pl-9' : 'pl-4'} pr-8 ${className?.card}`,
                 })
             }
         />

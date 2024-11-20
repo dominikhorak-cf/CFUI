@@ -12,7 +12,7 @@ export interface CardProps {
     defaultValue?: string | number | undefined
     icon?: string
     className?: {
-        card?: VariantProps<typeof input>,
+        card?: string,
         label?: string,
     }
 }

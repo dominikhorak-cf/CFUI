@@ -1,17 +1,25 @@
 import React, { createContext, useContext, useState, useCallback, ReactNode } from 'react'
 import { flushSync } from 'react-dom'
 
-export type NotificationRoles = 'Success' | 'Warning' | 'Failure' | 'Info'
+export type NotificationRoles = 'Info' | 'Success' | 'Warning' | 'Failure'
 
-export interface Notification {
-    id: number,
-    role: NotificationRoles
-    message?: string,
-    icon?: string,
-
+type RoleDetails = {
+    buttonRole: 'default' | 'success' | 'warning' | 'destructive'
+    icon?: string
 }
 
-interface NotificationsContextType {
+export type NotificationRoleMapping = {
+    [K in NotificationRoles]: RoleDetails
+  }
+
+export type Notification = {
+    id: number
+    role: keyof NotificationRoleMapping
+    message: string
+    icon?: string
+}
+
+export interface NotificationsContextType {
     notifications: Notification[],
     notify: Function,
     close: Function

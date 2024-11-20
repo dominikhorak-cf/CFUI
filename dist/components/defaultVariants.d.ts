@@ -1,110 +1,4 @@
-import * as react_jsx_runtime from 'react/jsx-runtime';
-import { ReactNode } from 'react';
-import * as tailwind_variants from 'tailwind-variants';
-import * as tailwind_variants_dist_config from 'tailwind-variants/dist/config';
-
-interface CardProps {
-    name: string;
-    type: string;
-    role?: 'input' | 'textarea' | 'dropdown' | 'daterange';
-    required?: boolean;
-    disabled?: boolean;
-    placeholder?: string;
-    values?: [];
-    defaultValue?: string | number | undefined;
-    icon?: string;
-    className?: {
-        card?: string;
-        label?: string;
-    };
-}
-
-declare function Card({ name, type, role, className, required, disabled, placeholder, values, defaultValue, icon, ...props }: CardProps): react_jsx_runtime.JSX.Element;
-
-interface DateRangeProps {
-    name?: string;
-    defaultValue?: string;
-    min?: string;
-    max?: string;
-    placeholder?: string;
-    includeFrom?: boolean;
-    includeTo?: boolean;
-    includeTime?: boolean;
-    disabled?: boolean;
-    required?: boolean;
-    locale?: string;
-    className?: string;
-    onSelect?: Function;
-    positions?: ('bottom' | 'top' | 'left' | 'right')[];
-    align?: 'start' | 'center' | 'end';
-}
-
-declare function DateRange({ name, defaultValue, min, max, placeholder, includeFrom, includeTo, includeTime, disabled, required, locale, className, onSelect, positions, align, }: DateRangeProps): react_jsx_runtime.JSX.Element;
-
-interface DropdownProps<T> {
-    name?: string;
-    values: T[] | undefined;
-    defaultValue?: T;
-    output?: string;
-    label?: string;
-    placeholder?: string;
-    disabled?: boolean;
-    allowSearching?: boolean;
-    selectMultiple?: boolean;
-    allowDeselecting?: boolean;
-    onSelect?: Function;
-    className?: string;
-    positions?: ('bottom' | 'top' | 'left' | 'right')[];
-    align?: 'start' | 'center' | 'end';
-}
-
-declare function Dropdown<T>({ name, values, defaultValue, output, label, placeholder, disabled, allowSearching, selectMultiple, allowDeselecting, onSelect, className, positions, align, }: DropdownProps<T>): react_jsx_runtime.JSX.Element;
-
-interface MenuProps {
-    children: ReactNode;
-    label: string;
-    icon: string;
-    checked: boolean;
-    orientation: 'vertical' | 'horizontal';
-    className: {
-        menu?: string;
-        button?: string;
-        label?: string;
-    };
-}
-
-declare function Menu({ children, label, icon, checked, orientation, className }: MenuProps): react_jsx_runtime.JSX.Element;
-
-interface ModalProps {
-    children?: ReactNode;
-    isOpen?: boolean;
-    message?: string;
-    heading?: string;
-    exitType: 'cancel' | 'close';
-    onClose?: Function;
-    className?: string;
-}
-
-declare function Modal({ children, isOpen, message, heading, exitType, onClose }: ModalProps): react_jsx_runtime.JSX.Element;
-
-interface PageBarProps {
-    itemCount: number;
-    pageSize: number;
-    currentPage: number;
-    onClick: Function;
-}
-
-declare function PageBar({ itemCount, pageSize, currentPage, onClick, }: PageBarProps): react_jsx_runtime.JSX.Element | null;
-
-declare function NavigationBar({ children }: {
-    children: ReactNode;
-}): react_jsx_runtime.JSX.Element;
-
-declare function Notifications(): react_jsx_runtime.JSX.Element;
-
-declare const Title: () => null;
-
-declare const base: tailwind_variants.TVReturnType<{
+export declare const base: import("tailwind-variants").TVReturnType<{
     width: {
         none: string;
         fit: string;
@@ -254,7 +148,7 @@ declare const base: tailwind_variants.TVReturnType<{
         ping: string;
         bounce: string;
     };
-}, undefined, "box-border", tailwind_variants_dist_config.TVConfig<{
+}, undefined, "box-border", import("tailwind-variants/dist/config").TVConfig<{
     width: {
         none: string;
         fit: string;
@@ -704,7 +598,7 @@ declare const base: tailwind_variants.TVReturnType<{
         ping: string;
         bounce: string;
     };
-}, undefined, tailwind_variants.TVReturnType<{
+}, undefined, import("tailwind-variants").TVReturnType<{
     width: {
         none: string;
         fit: string;
@@ -854,7 +748,7 @@ declare const base: tailwind_variants.TVReturnType<{
         ping: string;
         bounce: string;
     };
-}, undefined, "box-border", tailwind_variants_dist_config.TVConfig<{
+}, undefined, "box-border", import("tailwind-variants/dist/config").TVConfig<{
     width: {
         none: string;
         fit: string;
@@ -1155,7 +1049,7 @@ declare const base: tailwind_variants.TVReturnType<{
         bounce: string;
     };
 }>, unknown, unknown, undefined>>;
-declare const text: tailwind_variants.TVReturnType<{
+export declare const text: import("tailwind-variants").TVReturnType<{
     textSize: {
         xs: string;
         sm: string;
@@ -1324,7 +1218,7 @@ declare const text: tailwind_variants.TVReturnType<{
         ping: string;
         bounce: string;
     };
-}, undefined, undefined, tailwind_variants_dist_config.TVConfig<{
+}, undefined, undefined, import("tailwind-variants/dist/config").TVConfig<{
     textSize: {
         xs: string;
         sm: string;
@@ -1793,7 +1687,7 @@ declare const text: tailwind_variants.TVReturnType<{
         ping: string;
         bounce: string;
     };
-}, undefined, tailwind_variants.TVReturnType<{
+}, undefined, import("tailwind-variants").TVReturnType<{
     width: {
         none: string;
         fit: string;
@@ -1943,7 +1837,7 @@ declare const text: tailwind_variants.TVReturnType<{
         ping: string;
         bounce: string;
     };
-}, undefined, "box-border", tailwind_variants_dist_config.TVConfig<{
+}, undefined, "box-border", import("tailwind-variants/dist/config").TVConfig<{
     width: {
         none: string;
         fit: string;
@@ -2393,7 +2287,7 @@ declare const text: tailwind_variants.TVReturnType<{
         ping: string;
         bounce: string;
     };
-}, undefined, tailwind_variants.TVReturnType<{
+}, undefined, import("tailwind-variants").TVReturnType<{
     width: {
         none: string;
         fit: string;
@@ -2543,7 +2437,7 @@ declare const text: tailwind_variants.TVReturnType<{
         ping: string;
         bounce: string;
     };
-}, undefined, "box-border", tailwind_variants_dist_config.TVConfig<{
+}, undefined, "box-border", import("tailwind-variants/dist/config").TVConfig<{
     width: {
         none: string;
         fit: string;
@@ -2844,7 +2738,7 @@ declare const text: tailwind_variants.TVReturnType<{
         bounce: string;
     };
 }>, unknown, unknown, undefined>>>;
-declare const label: tailwind_variants.TVReturnType<{
+export declare const label: import("tailwind-variants").TVReturnType<{
     textSize: {};
     role: {
         majorHeading: string;
@@ -3013,7 +2907,7 @@ declare const label: tailwind_variants.TVReturnType<{
         ping: string;
         bounce: string;
     };
-}, undefined, undefined, tailwind_variants_dist_config.TVConfig<{
+}, undefined, undefined, import("tailwind-variants/dist/config").TVConfig<{
     textSize: {};
     role: {
         majorHeading: string;
@@ -3520,7 +3414,7 @@ declare const label: tailwind_variants.TVReturnType<{
         ping: string;
         bounce: string;
     };
-}, undefined, tailwind_variants.TVReturnType<{
+}, undefined, import("tailwind-variants").TVReturnType<{
     textSize: {
         xs: string;
         sm: string;
@@ -3689,7 +3583,7 @@ declare const label: tailwind_variants.TVReturnType<{
         ping: string;
         bounce: string;
     };
-}, undefined, undefined, tailwind_variants_dist_config.TVConfig<{
+}, undefined, undefined, import("tailwind-variants/dist/config").TVConfig<{
     textSize: {
         xs: string;
         sm: string;
@@ -4158,7 +4052,7 @@ declare const label: tailwind_variants.TVReturnType<{
         ping: string;
         bounce: string;
     };
-}, undefined, tailwind_variants.TVReturnType<{
+}, undefined, import("tailwind-variants").TVReturnType<{
     width: {
         none: string;
         fit: string;
@@ -4308,7 +4202,7 @@ declare const label: tailwind_variants.TVReturnType<{
         ping: string;
         bounce: string;
     };
-}, undefined, "box-border", tailwind_variants_dist_config.TVConfig<{
+}, undefined, "box-border", import("tailwind-variants/dist/config").TVConfig<{
     width: {
         none: string;
         fit: string;
@@ -4758,7 +4652,7 @@ declare const label: tailwind_variants.TVReturnType<{
         ping: string;
         bounce: string;
     };
-}, undefined, tailwind_variants.TVReturnType<{
+}, undefined, import("tailwind-variants").TVReturnType<{
     width: {
         none: string;
         fit: string;
@@ -4908,7 +4802,7 @@ declare const label: tailwind_variants.TVReturnType<{
         ping: string;
         bounce: string;
     };
-}, undefined, "box-border", tailwind_variants_dist_config.TVConfig<{
+}, undefined, "box-border", import("tailwind-variants/dist/config").TVConfig<{
     width: {
         none: string;
         fit: string;
@@ -5209,7 +5103,7 @@ declare const label: tailwind_variants.TVReturnType<{
         bounce: string;
     };
 }>, unknown, unknown, undefined>>>>;
-declare const container: tailwind_variants.TVReturnType<{
+export declare const container: import("tailwind-variants").TVReturnType<{
     shadow: {
         normal: string;
     };
@@ -5359,7 +5253,7 @@ declare const container: tailwind_variants.TVReturnType<{
         ping: string;
         bounce: string;
     };
-}, undefined, "flex-nowrap overflow-hidden text-text dark:text-text-dark", tailwind_variants_dist_config.TVConfig<{
+}, undefined, "flex-nowrap overflow-hidden text-text dark:text-text-dark", import("tailwind-variants/dist/config").TVConfig<{
     shadow: {
         normal: string;
     };
@@ -5809,7 +5703,7 @@ declare const container: tailwind_variants.TVReturnType<{
         ping: string;
         bounce: string;
     };
-}, undefined, tailwind_variants.TVReturnType<{
+}, undefined, import("tailwind-variants").TVReturnType<{
     width: {
         none: string;
         fit: string;
@@ -5959,7 +5853,7 @@ declare const container: tailwind_variants.TVReturnType<{
         ping: string;
         bounce: string;
     };
-}, undefined, "box-border", tailwind_variants_dist_config.TVConfig<{
+}, undefined, "box-border", import("tailwind-variants/dist/config").TVConfig<{
     width: {
         none: string;
         fit: string;
@@ -6409,7 +6303,7 @@ declare const container: tailwind_variants.TVReturnType<{
         ping: string;
         bounce: string;
     };
-}, undefined, tailwind_variants.TVReturnType<{
+}, undefined, import("tailwind-variants").TVReturnType<{
     width: {
         none: string;
         fit: string;
@@ -6559,7 +6453,7 @@ declare const container: tailwind_variants.TVReturnType<{
         ping: string;
         bounce: string;
     };
-}, undefined, "box-border", tailwind_variants_dist_config.TVConfig<{
+}, undefined, "box-border", import("tailwind-variants/dist/config").TVConfig<{
     width: {
         none: string;
         fit: string;
@@ -6860,7 +6754,7 @@ declare const container: tailwind_variants.TVReturnType<{
         bounce: string;
     };
 }>, unknown, unknown, undefined>>>;
-declare const input: tailwind_variants.TVReturnType<{
+export declare const input: import("tailwind-variants").TVReturnType<{
     role: {
         default: string;
         theme: string;
@@ -7040,7 +6934,7 @@ declare const input: tailwind_variants.TVReturnType<{
         ping: string;
         bounce: string;
     };
-}, undefined, "transition-colors outline-none disabled:bg-disabled disabled:dark:bg-disabled-dark disabled:text-text/50 disabled:dark:text-text-dark/50", tailwind_variants_dist_config.TVConfig<{
+}, undefined, "transition-colors outline-none disabled:bg-disabled disabled:dark:bg-disabled-dark disabled:text-text/50 disabled:dark:text-text-dark/50", import("tailwind-variants/dist/config").TVConfig<{
     role: {
         default: string;
         theme: string;
@@ -7558,7 +7452,7 @@ declare const input: tailwind_variants.TVReturnType<{
         ping: string;
         bounce: string;
     };
-}, undefined, tailwind_variants.TVReturnType<{
+}, undefined, import("tailwind-variants").TVReturnType<{
     textSize: {
         xs: string;
         sm: string;
@@ -7727,7 +7621,7 @@ declare const input: tailwind_variants.TVReturnType<{
         ping: string;
         bounce: string;
     };
-}, undefined, undefined, tailwind_variants_dist_config.TVConfig<{
+}, undefined, undefined, import("tailwind-variants/dist/config").TVConfig<{
     textSize: {
         xs: string;
         sm: string;
@@ -8196,7 +8090,7 @@ declare const input: tailwind_variants.TVReturnType<{
         ping: string;
         bounce: string;
     };
-}, undefined, tailwind_variants.TVReturnType<{
+}, undefined, import("tailwind-variants").TVReturnType<{
     width: {
         none: string;
         fit: string;
@@ -8346,7 +8240,7 @@ declare const input: tailwind_variants.TVReturnType<{
         ping: string;
         bounce: string;
     };
-}, undefined, "box-border", tailwind_variants_dist_config.TVConfig<{
+}, undefined, "box-border", import("tailwind-variants/dist/config").TVConfig<{
     width: {
         none: string;
         fit: string;
@@ -8796,7 +8690,7 @@ declare const input: tailwind_variants.TVReturnType<{
         ping: string;
         bounce: string;
     };
-}, undefined, tailwind_variants.TVReturnType<{
+}, undefined, import("tailwind-variants").TVReturnType<{
     width: {
         none: string;
         fit: string;
@@ -8946,7 +8840,7 @@ declare const input: tailwind_variants.TVReturnType<{
         ping: string;
         bounce: string;
     };
-}, undefined, "box-border", tailwind_variants_dist_config.TVConfig<{
+}, undefined, "box-border", import("tailwind-variants/dist/config").TVConfig<{
     width: {
         none: string;
         fit: string;
@@ -9247,7 +9141,7 @@ declare const input: tailwind_variants.TVReturnType<{
         bounce: string;
     };
 }>, unknown, unknown, undefined>>>>;
-declare const button: tailwind_variants.TVReturnType<{
+export declare const button: import("tailwind-variants").TVReturnType<{
     role: {};
     type: {
         default: string;
@@ -9417,7 +9311,7 @@ declare const button: tailwind_variants.TVReturnType<{
         ping: string;
         bounce: string;
     };
-}, undefined, undefined, tailwind_variants_dist_config.TVConfig<{
+}, undefined, undefined, import("tailwind-variants/dist/config").TVConfig<{
     role: {};
     type: {
         default: string;
@@ -9947,7 +9841,7 @@ declare const button: tailwind_variants.TVReturnType<{
         ping: string;
         bounce: string;
     };
-}, undefined, tailwind_variants.TVReturnType<{
+}, undefined, import("tailwind-variants").TVReturnType<{
     role: {
         default: string;
         theme: string;
@@ -10127,7 +10021,7 @@ declare const button: tailwind_variants.TVReturnType<{
         ping: string;
         bounce: string;
     };
-}, undefined, "transition-colors outline-none disabled:bg-disabled disabled:dark:bg-disabled-dark disabled:text-text/50 disabled:dark:text-text-dark/50", tailwind_variants_dist_config.TVConfig<{
+}, undefined, "transition-colors outline-none disabled:bg-disabled disabled:dark:bg-disabled-dark disabled:text-text/50 disabled:dark:text-text-dark/50", import("tailwind-variants/dist/config").TVConfig<{
     role: {
         default: string;
         theme: string;
@@ -10645,7 +10539,7 @@ declare const button: tailwind_variants.TVReturnType<{
         ping: string;
         bounce: string;
     };
-}, undefined, tailwind_variants.TVReturnType<{
+}, undefined, import("tailwind-variants").TVReturnType<{
     textSize: {
         xs: string;
         sm: string;
@@ -10814,7 +10708,7 @@ declare const button: tailwind_variants.TVReturnType<{
         ping: string;
         bounce: string;
     };
-}, undefined, undefined, tailwind_variants_dist_config.TVConfig<{
+}, undefined, undefined, import("tailwind-variants/dist/config").TVConfig<{
     textSize: {
         xs: string;
         sm: string;
@@ -11283,7 +11177,7 @@ declare const button: tailwind_variants.TVReturnType<{
         ping: string;
         bounce: string;
     };
-}, undefined, tailwind_variants.TVReturnType<{
+}, undefined, import("tailwind-variants").TVReturnType<{
     width: {
         none: string;
         fit: string;
@@ -11433,7 +11327,7 @@ declare const button: tailwind_variants.TVReturnType<{
         ping: string;
         bounce: string;
     };
-}, undefined, "box-border", tailwind_variants_dist_config.TVConfig<{
+}, undefined, "box-border", import("tailwind-variants/dist/config").TVConfig<{
     width: {
         none: string;
         fit: string;
@@ -11883,7 +11777,7 @@ declare const button: tailwind_variants.TVReturnType<{
         ping: string;
         bounce: string;
     };
-}, undefined, tailwind_variants.TVReturnType<{
+}, undefined, import("tailwind-variants").TVReturnType<{
     width: {
         none: string;
         fit: string;
@@ -12033,7 +11927,7 @@ declare const button: tailwind_variants.TVReturnType<{
         ping: string;
         bounce: string;
     };
-}, undefined, "box-border", tailwind_variants_dist_config.TVConfig<{
+}, undefined, "box-border", import("tailwind-variants/dist/config").TVConfig<{
     width: {
         none: string;
         fit: string;
@@ -12334,7 +12228,7 @@ declare const button: tailwind_variants.TVReturnType<{
         bounce: string;
     };
 }>, unknown, unknown, undefined>>>>>;
-declare const responsiveButton: tailwind_variants.TVReturnType<{
+export declare const responsiveButton: import("tailwind-variants").TVReturnType<{
     role: {};
     type: {
         default: string;
@@ -12504,7 +12398,7 @@ declare const responsiveButton: tailwind_variants.TVReturnType<{
         ping: string;
         bounce: string;
     };
-}, undefined, "p-0 md:p-2 w-8 md:w-full rounded-full md:rounded-xl aspect-square md:aspect-auto", tailwind_variants_dist_config.TVConfig<{
+}, undefined, "p-0 md:p-2 w-8 md:w-full rounded-full md:rounded-xl aspect-square md:aspect-auto", import("tailwind-variants/dist/config").TVConfig<{
     role: {};
     type: {
         default: string;
@@ -13014,7 +12908,7 @@ declare const responsiveButton: tailwind_variants.TVReturnType<{
         ping: string;
         bounce: string;
     };
-}, undefined, tailwind_variants.TVReturnType<{
+}, undefined, import("tailwind-variants").TVReturnType<{
     role: {};
     type: {
         default: string;
@@ -13184,7 +13078,7 @@ declare const responsiveButton: tailwind_variants.TVReturnType<{
         ping: string;
         bounce: string;
     };
-}, undefined, undefined, tailwind_variants_dist_config.TVConfig<{
+}, undefined, undefined, import("tailwind-variants/dist/config").TVConfig<{
     role: {};
     type: {
         default: string;
@@ -13714,7 +13608,7 @@ declare const responsiveButton: tailwind_variants.TVReturnType<{
         ping: string;
         bounce: string;
     };
-}, undefined, tailwind_variants.TVReturnType<{
+}, undefined, import("tailwind-variants").TVReturnType<{
     role: {
         default: string;
         theme: string;
@@ -13894,7 +13788,7 @@ declare const responsiveButton: tailwind_variants.TVReturnType<{
         ping: string;
         bounce: string;
     };
-}, undefined, "transition-colors outline-none disabled:bg-disabled disabled:dark:bg-disabled-dark disabled:text-text/50 disabled:dark:text-text-dark/50", tailwind_variants_dist_config.TVConfig<{
+}, undefined, "transition-colors outline-none disabled:bg-disabled disabled:dark:bg-disabled-dark disabled:text-text/50 disabled:dark:text-text-dark/50", import("tailwind-variants/dist/config").TVConfig<{
     role: {
         default: string;
         theme: string;
@@ -14412,7 +14306,7 @@ declare const responsiveButton: tailwind_variants.TVReturnType<{
         ping: string;
         bounce: string;
     };
-}, undefined, tailwind_variants.TVReturnType<{
+}, undefined, import("tailwind-variants").TVReturnType<{
     textSize: {
         xs: string;
         sm: string;
@@ -14581,7 +14475,7 @@ declare const responsiveButton: tailwind_variants.TVReturnType<{
         ping: string;
         bounce: string;
     };
-}, undefined, undefined, tailwind_variants_dist_config.TVConfig<{
+}, undefined, undefined, import("tailwind-variants/dist/config").TVConfig<{
     textSize: {
         xs: string;
         sm: string;
@@ -15050,7 +14944,7 @@ declare const responsiveButton: tailwind_variants.TVReturnType<{
         ping: string;
         bounce: string;
     };
-}, undefined, tailwind_variants.TVReturnType<{
+}, undefined, import("tailwind-variants").TVReturnType<{
     width: {
         none: string;
         fit: string;
@@ -15200,7 +15094,7 @@ declare const responsiveButton: tailwind_variants.TVReturnType<{
         ping: string;
         bounce: string;
     };
-}, undefined, "box-border", tailwind_variants_dist_config.TVConfig<{
+}, undefined, "box-border", import("tailwind-variants/dist/config").TVConfig<{
     width: {
         none: string;
         fit: string;
@@ -15650,7 +15544,7 @@ declare const responsiveButton: tailwind_variants.TVReturnType<{
         ping: string;
         bounce: string;
     };
-}, undefined, tailwind_variants.TVReturnType<{
+}, undefined, import("tailwind-variants").TVReturnType<{
     width: {
         none: string;
         fit: string;
@@ -15800,7 +15694,7 @@ declare const responsiveButton: tailwind_variants.TVReturnType<{
         ping: string;
         bounce: string;
     };
-}, undefined, "box-border", tailwind_variants_dist_config.TVConfig<{
+}, undefined, "box-border", import("tailwind-variants/dist/config").TVConfig<{
     width: {
         none: string;
         fit: string;
@@ -16101,7 +15995,7 @@ declare const responsiveButton: tailwind_variants.TVReturnType<{
         bounce: string;
     };
 }>, unknown, unknown, undefined>>>>>>;
-declare const tag: tailwind_variants.TVReturnType<{
+export declare const tag: import("tailwind-variants").TVReturnType<{
     role: {
         tag: string;
     };
@@ -16273,7 +16167,7 @@ declare const tag: tailwind_variants.TVReturnType<{
         ping: string;
         bounce: string;
     };
-}, undefined, "hover:brightness-110 active:brightness-75 py-0.5 px-2", tailwind_variants_dist_config.TVConfig<{
+}, undefined, "hover:brightness-110 active:brightness-75 py-0.5 px-2", import("tailwind-variants/dist/config").TVConfig<{
     role: {
         tag: string;
     };
@@ -16785,7 +16679,7 @@ declare const tag: tailwind_variants.TVReturnType<{
         ping: string;
         bounce: string;
     };
-}, undefined, tailwind_variants.TVReturnType<{
+}, undefined, import("tailwind-variants").TVReturnType<{
     role: {};
     type: {
         default: string;
@@ -16955,7 +16849,7 @@ declare const tag: tailwind_variants.TVReturnType<{
         ping: string;
         bounce: string;
     };
-}, undefined, undefined, tailwind_variants_dist_config.TVConfig<{
+}, undefined, undefined, import("tailwind-variants/dist/config").TVConfig<{
     role: {};
     type: {
         default: string;
@@ -17485,7 +17379,7 @@ declare const tag: tailwind_variants.TVReturnType<{
         ping: string;
         bounce: string;
     };
-}, undefined, tailwind_variants.TVReturnType<{
+}, undefined, import("tailwind-variants").TVReturnType<{
     role: {
         default: string;
         theme: string;
@@ -17665,7 +17559,7 @@ declare const tag: tailwind_variants.TVReturnType<{
         ping: string;
         bounce: string;
     };
-}, undefined, "transition-colors outline-none disabled:bg-disabled disabled:dark:bg-disabled-dark disabled:text-text/50 disabled:dark:text-text-dark/50", tailwind_variants_dist_config.TVConfig<{
+}, undefined, "transition-colors outline-none disabled:bg-disabled disabled:dark:bg-disabled-dark disabled:text-text/50 disabled:dark:text-text-dark/50", import("tailwind-variants/dist/config").TVConfig<{
     role: {
         default: string;
         theme: string;
@@ -18183,7 +18077,7 @@ declare const tag: tailwind_variants.TVReturnType<{
         ping: string;
         bounce: string;
     };
-}, undefined, tailwind_variants.TVReturnType<{
+}, undefined, import("tailwind-variants").TVReturnType<{
     textSize: {
         xs: string;
         sm: string;
@@ -18352,7 +18246,7 @@ declare const tag: tailwind_variants.TVReturnType<{
         ping: string;
         bounce: string;
     };
-}, undefined, undefined, tailwind_variants_dist_config.TVConfig<{
+}, undefined, undefined, import("tailwind-variants/dist/config").TVConfig<{
     textSize: {
         xs: string;
         sm: string;
@@ -18821,7 +18715,7 @@ declare const tag: tailwind_variants.TVReturnType<{
         ping: string;
         bounce: string;
     };
-}, undefined, tailwind_variants.TVReturnType<{
+}, undefined, import("tailwind-variants").TVReturnType<{
     width: {
         none: string;
         fit: string;
@@ -18971,7 +18865,7 @@ declare const tag: tailwind_variants.TVReturnType<{
         ping: string;
         bounce: string;
     };
-}, undefined, "box-border", tailwind_variants_dist_config.TVConfig<{
+}, undefined, "box-border", import("tailwind-variants/dist/config").TVConfig<{
     width: {
         none: string;
         fit: string;
@@ -19421,7 +19315,7 @@ declare const tag: tailwind_variants.TVReturnType<{
         ping: string;
         bounce: string;
     };
-}, undefined, tailwind_variants.TVReturnType<{
+}, undefined, import("tailwind-variants").TVReturnType<{
     width: {
         none: string;
         fit: string;
@@ -19571,7 +19465,7 @@ declare const tag: tailwind_variants.TVReturnType<{
         ping: string;
         bounce: string;
     };
-}, undefined, "box-border", tailwind_variants_dist_config.TVConfig<{
+}, undefined, "box-border", import("tailwind-variants/dist/config").TVConfig<{
     width: {
         none: string;
         fit: string;
@@ -19872,7 +19766,7 @@ declare const tag: tailwind_variants.TVReturnType<{
         bounce: string;
     };
 }>, unknown, unknown, undefined>>>>>>;
-declare const menuItem: tailwind_variants.TVReturnType<{
+export declare const menuItem: import("tailwind-variants").TVReturnType<{
     selected: {
         true: string;
     };
@@ -20025,7 +19919,7 @@ declare const menuItem: tailwind_variants.TVReturnType<{
         ping: string;
         bounce: string;
     };
-}, undefined, "text-text dark:text-text-dark text-sm px-2 py-0.5 text-nowrap", tailwind_variants_dist_config.TVConfig<{
+}, undefined, "text-text dark:text-text-dark text-sm px-2 py-0.5 text-nowrap", import("tailwind-variants/dist/config").TVConfig<{
     selected: {
         true: string;
     };
@@ -20478,7 +20372,7 @@ declare const menuItem: tailwind_variants.TVReturnType<{
         ping: string;
         bounce: string;
     };
-}, undefined, tailwind_variants.TVReturnType<{
+}, undefined, import("tailwind-variants").TVReturnType<{
     width: {
         none: string;
         fit: string;
@@ -20628,7 +20522,7 @@ declare const menuItem: tailwind_variants.TVReturnType<{
         ping: string;
         bounce: string;
     };
-}, undefined, "box-border", tailwind_variants_dist_config.TVConfig<{
+}, undefined, "box-border", import("tailwind-variants/dist/config").TVConfig<{
     width: {
         none: string;
         fit: string;
@@ -21078,7 +20972,7 @@ declare const menuItem: tailwind_variants.TVReturnType<{
         ping: string;
         bounce: string;
     };
-}, undefined, tailwind_variants.TVReturnType<{
+}, undefined, import("tailwind-variants").TVReturnType<{
     width: {
         none: string;
         fit: string;
@@ -21228,7 +21122,7 @@ declare const menuItem: tailwind_variants.TVReturnType<{
         ping: string;
         bounce: string;
     };
-}, undefined, "box-border", tailwind_variants_dist_config.TVConfig<{
+}, undefined, "box-border", import("tailwind-variants/dist/config").TVConfig<{
     width: {
         none: string;
         fit: string;
@@ -21529,26 +21423,3 @@ declare const menuItem: tailwind_variants.TVReturnType<{
         bounce: string;
     };
 }>, unknown, unknown, undefined>>>;
-
-type NotificationRoles = 'Info' | 'Success' | 'Warning' | 'Failure';
-type RoleDetails = {
-    buttonRole: 'default' | 'success' | 'warning' | 'destructive';
-    icon?: string;
-};
-type NotificationRoleMapping = {
-    [K in NotificationRoles]: RoleDetails;
-};
-type Notification = {
-    id: number;
-    role: keyof NotificationRoleMapping;
-    message: string;
-    icon?: string;
-};
-interface NotificationsContextType {
-    notifications: Notification[];
-    notify: Function;
-    close: Function;
-}
-declare const useNotification: () => NotificationsContextType | null;
-
-export { Card, type CardProps, DateRange, type DateRangeProps, Dropdown, type DropdownProps, Menu, type MenuProps, Modal, type ModalProps, NavigationBar, Notifications, PageBar, type PageBarProps, Title, base, button, container, input, label, menuItem, responsiveButton, tag, text, useNotification };

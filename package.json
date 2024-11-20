@@ -17,8 +17,11 @@
     "@types/lodash": "^4.17.13",
     "@types/node": "^22.9.1",
     "rollup": "^4.27.3",
+    "rollup-plugin-delete": "^2.1.0",
     "rollup-plugin-dts": "^6.1.1",
     "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-postcss": "^4.0.2",
+    "rollup-plugin-typescript2": "^0.36.0",
     "tslib": "^2.8.1"
   },
   "peerDependencies": {
@@ -28,12 +31,15 @@
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "rollup": "rollup -c --bundleConfigAsCjs"
   },
   "compilerOptions": {
-    "declaration": true,                    
-    "declarationMap": true,        
+    "declaration": true,
+    "declarationMap": true,
     "declarationDir": "./dist/types",
     "noEmit": true
   }

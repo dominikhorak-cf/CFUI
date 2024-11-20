@@ -9,14 +9,9 @@ import { button, container, input, text } from 'components/defaultVariants'
 import Icon from 'components/icon/Icon'
 import { useMenuRef } from 'components/inputs/menu/Menu'
 import { DateRangeProps } from './DateRange.types'
-import { Positions } from 'components/popover/Popover.types'
 
 const defaultOnSelect = () => {}
-const defaultPositions: Positions = ['bottom', 'top', 'left', 'right']
-
-interface InputRef {
-    current?: HTMLInputElement | null;
-}
+const defaultPositions: ('bottom' | 'top' | 'left' | 'right')[] = ['bottom', 'top', 'left', 'right']
 type dateRangeType = [string | undefined, string | undefined]
 
 export default function DateRange({

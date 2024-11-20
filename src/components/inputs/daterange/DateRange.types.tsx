@@ -1,5 +1,3 @@
-import { Align, Positions } from "components/popover/Popover.types";
-
 export interface DateRangeProps {
     name?: string,
     defaultValue?: string,
@@ -14,6 +12,6 @@ export interface DateRangeProps {
     locale?: string
     className?: string,
     onSelect?: Function,
-    positions?: Positions,
-    align?: Align,
+    positions?: ('bottom' | 'top' | 'left' | 'right')[],
+    align?: 'start' | 'center' | 'end',
 }
